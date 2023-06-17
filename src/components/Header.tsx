@@ -25,7 +25,6 @@ export default function Header() {
               title="Open menu"
               aria-label="Open menu"
               class="inline desktop:hidden"
-              href="#"
               onClick={onClickedMenu}
             >
               <img
@@ -41,7 +40,7 @@ export default function Header() {
                 class="icon-pointer"
                 src="images/logo.svg"
                 height="20"
-                width="137.5"
+                width="138"
                 alt="Sneaker Company logo"
               />
             </a>
@@ -59,7 +58,6 @@ export default function Header() {
               title="Close menu"
               aria-label="Close menu"
               class="mb-12 block desktop:hidden"
-              href="#"
               onClick={onClickedMenu}
             >
               <CloseIcon class="fill-darkgrayishblue" />
@@ -70,7 +68,7 @@ export default function Header() {
         <div class="float-right flex flex-row items-center space-x-8">
           <button
             type="button"
-            class="relative cursor-pointer"
+            class="relative"
             onClick={onClickedCart}
             title="Shopping cart"
             aria-label="Shopping cart"
@@ -89,7 +87,7 @@ export default function Header() {
           </button>
           <button
             type="button"
-            class="relative cursor-pointer"
+            class="relative"
             title="User profile"
             aria-label="User profile"
           >

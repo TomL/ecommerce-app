@@ -21,7 +21,7 @@ export default function Cart() {
               ))}
             </div>
             <button
-              class=" h-14 w-full cursor-pointer rounded-xl bg-orange font-bold text-white"
+              class=" h-14 w-full rounded-xl bg-orange font-bold text-white"
               title="Checkout"
               type="submit"
             >
