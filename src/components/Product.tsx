@@ -18,10 +18,10 @@ export default function ProductView({ product }: { product: Product }) {
 
 function ProductContainer({ children }: { children: ComponentChildren }) {
   return (
-    <div class="">
+    <main>
       <div class="flex columns-2 flex-wrap justify-between desktop:mx-12 desktop:my-24">
         {children}
       </div>
-    </div>
+    </main>
   );
 }

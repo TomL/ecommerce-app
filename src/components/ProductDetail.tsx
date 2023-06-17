@@ -61,8 +61,8 @@ export default function ProductDetail({ product }: { product: Product }) {
       <div class="flex flex-col space-y-4 desktop:flex-row desktop:space-x-4 desktop:space-y-0">
         <div class="flex h-14 w-full flex-row rounded-xl bg-lightgrayishblue desktop:w-36">
           <button
-            class="h-full w-20 cursor-pointer outline-none"
-            title="minus"
+            class="h-full w-20 outline-none"
+            title="Previous image"
             type="button"
             onClick={clickedDecQuantity}
             aria-label="Previous image"
@@ -74,12 +74,11 @@ export default function ProductDetail({ product }: { product: Product }) {
             ref={inputRef}
             class="w-full bg-lightgrayishblue text-center font-bold outline-none"
             value="1"
-            label="quantity"
             aria-label="quantity"
           ></input>
           <button
-            class="h-full w-20 cursor-pointer outline-none"
-            title="plus"
+            class="h-full w-20 outline-none"
+            title="Next image"
             type="button"
             onClick={clickedIncQuantity}
             aria-label="Next image"

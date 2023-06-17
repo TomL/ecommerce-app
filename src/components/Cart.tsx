@@ -51,8 +51,8 @@ function CartItem({
         class="h-12 w-12 rounded"
         src={cartItem.product.images[0].urlThumb}
         alt={cartItem.product.images[0].altText}
-        height="48px"
-        width="48px"
+        height="48"
+        width="48"
       />
       <div class="text-darkgrayishblue">
         <span>{cartItem.product.name}</span>
@@ -65,10 +65,15 @@ function CartItem({
           </span>
         </div>
       </div>
-      <DeleteIcon
-        class="cursor-pointer fill-grayishblue"
+      <button
+        type="button"
+        class="relative"
         onClick={() => removeFromShopCart(index)}
-      />
+        title="Delete from shopping cart"
+        aria-label="Delete from shopping Cart"
+      >
+        <DeleteIcon class="fill-grayishblue" />
+      </button>
     </div>
   );
 }

@@ -56,15 +56,15 @@ function AlbumModal({
     <>
       <div onClick={(e) => e.stopPropagation()}>
         <div class="my-6 flex flex-row justify-end">
-          <CloseIcon
-            class="h-5 w-5 cursor-pointer fill-white hover:fill-orange"
+          <button
+            type="button"
             onClick={showModal}
-          />
+            title="Close image viewer"
+            aria-label="Close image viewer"
+          >
+            <CloseIcon class="h-5 w-5 fill-white hover:fill-orange" />
+          </button>
         </div>
-        <a
-          class="absolute right-8 top-6 text-5xl font-bold text-white"
-          href="javascript:void(0)"
-        ></a>
         <AlbumViewer
           isModal={true}
           images={images}
@@ -109,8 +109,8 @@ function AlbumViewer({
         }
         src={currentImage.urlFull}
         alt={currentImage.altText}
-        height="550px"
-        width="550px"
+        height="550"
+        width="550"
         onClick={showModal}
       />
       <div
@@ -119,18 +119,24 @@ function AlbumViewer({
           (isModal ? "desktop:top-[calc(50%-3.5rem)]" : "desktop:invisible")
         }
       >
-        <div
-          class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white stroke-black hover:stroke-orange desktop:h-14 desktop:w-14"
+        <button
+          type="button"
+          title="Previous image"
+          aria-label="Previous image"
+          class="flex h-10 w-10 items-center justify-center rounded-full bg-white stroke-black hover:stroke-orange desktop:h-14 desktop:w-14"
           onClick={prevImage}
         >
           <PreviousIcon />
-        </div>
-        <div
+        </button>
+        <button
+          type="button"
+          title="Next image"
+          aria-label="Next image"
           class="flex h-10 w-10 cursor-pointer items-center justify-center rounded-full bg-white stroke-black hover:stroke-orange desktop:h-14 desktop:w-14"
           onClick={nextImage}
         >
           <NextIcon />
-        </div>
+        </button>
       </div>
       <div class="mt-8 hidden flex-row justify-between desktop:flex">
         {images.map((image) => (
@@ -163,8 +169,8 @@ function ImageThumb({
           (isCurrent && "border-2 border-orange opacity-70")
         }
         src={image.urlThumb}
-        height="88px"
-        width="88px"
+        height="88"
+        width="88"
         alt={image.altText}
         onClick={() => changeImage(image)}
       />
