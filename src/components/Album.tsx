@@ -4,13 +4,13 @@ import { useSignal } from "@preact/signals";
 
 export default function Album({ product }: { product: Product }) {
   const firstImage = product.images[0];
-  const currentImage = useSignal(firstImage);
-  const modalShown = useSignal(false);
 
+  const modalShown = useSignal(false);
   const showModal = () => {
     modalShown.value = !modalShown.value;
   };
 
+  const currentImage = useSignal(firstImage);
   const changeImage = (image: ProductImage) => {
     currentImage.value = image;
   };
@@ -30,24 +30,47 @@ export default function Album({ product }: { product: Product }) {
         }
         onClick={showModal}
       >
-        <div onClick={(e) => e.stopPropagation()}>
-          <div class="my-6 flex flex-row justify-end">
-            <CloseIcon
-              class="h-5 w-5 cursor-pointer fill-white hover:fill-orange"
-              onClick={showModal}
-            />
-          </div>
-          <a
-            class="absolute right-8 top-6 text-5xl font-bold text-white"
-            href="javascript:void(0)"
-          ></a>
-          <AlbumViewer
-            isModal={true}
-            images={product.images}
-            currentImage={currentImage.value}
-            changeImage={changeImage}
+        <AlbumModal
+          images={product.images}
+          currentImage={currentImage.value}
+          changeImage={changeImage}
+          showModal={showModal}
+        />
+      </div>
+    </>
+  );
+}
+
+function AlbumModal({
+  images,
+  currentImage,
+  showModal,
+  changeImage,
+}: {
+  images: ProductImage[];
+  currentImage: ProductImage;
+  showModal: () => void;
+  changeImage: (image: ProductImage) => void;
+}) {
+  return (
+    <>
+      <div onClick={(e) => e.stopPropagation()}>
+        <div class="my-6 flex flex-row justify-end">
+          <CloseIcon
+            class="h-5 w-5 cursor-pointer fill-white hover:fill-orange"
+            onClick={showModal}
           />
         </div>
+        <a
+          class="absolute right-8 top-6 text-5xl font-bold text-white"
+          href="javascript:void(0)"
+        ></a>
+        <AlbumViewer
+          isModal={true}
+          images={images}
+          currentImage={currentImage}
+          changeImage={changeImage}
+        />
       </div>
     </>
   );
